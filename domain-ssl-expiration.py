@@ -53,7 +53,6 @@ if __name__ == "__main__":
 
     web_site = argv[1]
     expiration = argv[2]  # 'domain' or 'ssl'
-    web_ssl_port = argv[3]
 
     if not isinstance(web_site, str):
         raise "Need a format str"
@@ -63,6 +62,7 @@ if __name__ == "__main__":
         print(obj)
 
     elif expiration == 'ssl':
+        web_ssl_port = argv[3]
         obj = SslCertifExpiration(web_site, web_ssl_port)
         if obj:
             value_count = obj.check_expiration_ssl()
